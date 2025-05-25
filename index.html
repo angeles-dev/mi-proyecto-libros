@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libros & Opiniones</title>
+  <style>
+    /* Estilo general del cuerpo */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Estilo del encabezado */
+    header {
+      background-color: #2c3e50;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ecf0f1;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #3498db;
+    }
+
+    /* Sección de productos */
+    #productos {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #productos h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .libros {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .libro {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .libro img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .libro h3 {
+      color: #2c3e50;
+    }
+
+    .libro p {
+      margin: 5px 0;
+    }
+
+    .libro button {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .libro button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Sección de opiniones */
+    #opiniones {
+      background-color: #ecf0f1;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #opiniones h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    #opiniones article {
+      margin-bottom: 15px;
+      border-left: 5px solid #3498db;
+      padding-left: 15px;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #opiniones h3 {
+      color: #2c3e50;
+    }
+
+    /* Sección de contacto */
+    #contacto {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #contacto h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Carrito de compras */
+    #carrito {
+      background-color: #ecf0f1;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #carrito h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    #lista-carrito {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #lista-carrito li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #lista-carrito button {
+      background-color: #e74c3c;
+      color: #ffffff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #lista-carrito button:hover {
+      background-color: #c0392b;
+    }
+
+    #total {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: #2c3e50;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #pagar-btn {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    #pagar-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .img-1984 {
+  width: 90px;
+  height: auto;
+}
+.img-libro {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📚 Libros & Opiniones</h1>
+    <nav>
+      <ul>
+        <li><a href="#productos">Libros</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="productos">
+      <h2>Nuestros libros</h2>
+      <div class="libros">
+        <div class="libro">
+          <img src="imagenes/618d227e8967274cd9589a549adff52d.webp" alt="Cien años de soledad" class="img-libro">
+          <h3>Cien años de soledad</h3>
+          <p>Gabriel García Márquez</p>
+          <p><strong>$14.500</strong></p>
+          <button class="add-to-cart" data-title="Cien años de soledad" data-price="14500">Agregar al carrito</button>
+        </div>
+        <div class="libro">
+          <img src="imagenes/374058_portada_1984_george-orwell_202104151338.webp" alt="1984 de George Orwell" class="img-libro">
+          <h3>1984</h3>
+          <p>George Orwell</p>
+          <p><strong>$12.500</strong></p>
+          <button class="add-to-cart" data-title="1984" data-price="12500">Agregar al carrito</button>
+        </div>
+        <div class="libro">
+          <img src="imagenes/cronica-de-una-muerte-anunciada.webp" alt="Crónica de una muerte anunciada" class="img-libro">
+          <h3>Crónica de una muerte anunciada</h3>
+          <p>Gabriel García Márquez</p>
+          <p><strong>$10.000</strong></p>
+          <button class="add-to-cart" data-title="Crónica de una muerte anunciada" data-price="10000">Agregar al carrito</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="opiniones">
+      <h2>Opiniones de lectores</h2>
+      <article>
+        <h3>1984 – George Orwell</h3>
+        <p>"Una distopía inquietante y sorprendentemente actual. Recomendado 100%."</p>
+      </article>
+      <article>
+        <h3>Cien años de soledad – Gabriel García Márquez</h3>
+        <p>"Una obra maestra del realismo mágico. Magnífica narrativa."</p>
+      </article>
+      <article>
+        <h3>Crónica de una muerte anunciada – Gabriel García Márquez</h3>
+        <p>"Un relato atrapante y breve, con un final impactante. Muy recomendable."</p>
+      </article>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="carrito">
+      <h2>Carrito de compras</h2>
+      <ul id="lista-carrito"></ul>
+      <p>Total: <strong>$<span id="total">0</span></strong></p>
+      <button id="pagar-btn">Pagar</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Libros & Opiniones. Todos los derechos reservados.</p>
+    <p>Dirección: Avenida Corrientes 2345, Capital federal</p>
+    <p>
+      Síguenos:
+      <a href="https://facebook.com/" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/" target="_blank">Instagram</a> |
+      <a href="https://wa.me/5491123456789" target="_blank">WhatsApp</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const botonesAgregar = document.querySelectorAll('.add-to-cart');
+      const listaCarrito = document.getElementById('lista-carrito');
+      const totalElement = document.getElementById('total');
+      let total = 0;
+
+      botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', () => {
+          const titulo = boton.getAttribute('data-title');
+          const precio = parseInt(boton.getAttribute('data-price'));
+          const item = document.createElement('li');
+          item.textContent = `${titulo} - $${precio}`;
+          const botonEliminar = document.createElement('button');
+          botonEliminar.textContent = 'Eliminar';
+          botonEliminar.style.marginLeft = '10px';
+          botonEliminar.addEventListener('click', () => {
+            listaCarrito.removeChild(item);
+            total -= precio;
+            totalElement.textContent = total;
+          });
+          item.appendChild(botonEliminar);
+          listaCarrito.appendChild(item);
+          total += precio;
+          totalElement.textContent = total;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
